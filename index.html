@@ -47,7 +47,6 @@
     <a class="brand" href="#"><span>SHOP</span> NGUYỄN THẾ BẢO</a>
     <div class="nav-actions">
       <a class="btn btn-green" id="zaloTop" href="https://zalo.me/" target="_blank" rel="noopener">Chat Zalo ↗</a>
-      <button class="btn" id="openAdmin">⚙ Quản lý</button>
     </div>
   </div>
 </header>
@@ -85,54 +84,16 @@
 
 <footer><div class="wrap">© <span id="year"></span> Shop Nguyễn Thế Bảo · Website mẫu miễn phí.<br>Free Fire là thương hiệu của chủ sở hữu tương ứng. Website này không phải trang chính thức của Garena.</div></footer>
 
-<dialog id="adminDialog">
-  <div class="modal-head"><h2>⚙ Quản lý danh sách acc</h2><button class="btn" id="closeAdmin" aria-label="Đóng">✕</button></div>
-  <div class="modal-content">
-    <div id="loginBox">
-      <p class="muted">Nhập mã quản lý demo để mở phần thêm/sửa/xóa acc.</p>
-      <label class="form-label" for="adminPassword">Mã quản lý demo</label>
-      <input class="field" id="adminPassword" type="password" placeholder="Mặc định: demo123">
-      <div class="form-actions"><button class="btn btn-primary" id="loginButton">Mở quản lý</button></div>
-      <p class="muted" style="font-size:.82rem">Bảo mật: mã này chỉ để thử giao diện. Vì mã nằm trong mã nguồn công khai, bất kỳ ai cũng có thể xem và vượt qua. Không dùng để bảo vệ shop thật.</p>
-    </div>
-    <div id="adminBox" class="hidden">
-      <div class="notice">Dữ liệu demo được lưu trên trình duyệt hiện tại. Xóa dữ liệu trình duyệt hoặc dùng thiết bị khác có thể làm dữ liệu không còn đồng bộ.</div>
-      <form id="productForm">
-        <input type="hidden" id="productId">
-        <div class="form-grid">
-          <div><label class="form-label" for="productName">Tên acc</label><input class="field" id="productName" maxlength="70" required placeholder="VD: Acc rank cao"></div>
-          <div><label class="form-label" for="productPrice">Giá (VNĐ)</label><input class="field" id="productPrice" type="number" min="0" step="1000" required placeholder="150000"></div>
-          <div><label class="form-label" for="productTag">Nhãn</label><input class="field" id="productTag" maxlength="24" placeholder="VD: Rank cao"></div>
-          <div><label class="form-label" for="productIcon">Biểu tượng</label><select class="field" id="productIcon"><option>🎮</option><option>🔥</option><option>💎</option><option>⚡</option><option>👑</option><option>🚀</option></select></div>
-          <div class="full"><label class="form-label" for="productDesc">Mô tả ngắn (không ghi mật khẩu)</label><textarea class="field" id="productDesc" rows="2" maxlength="180" required placeholder="Mô tả thông tin nổi bật của acc…"></textarea></div>
-        </div>
-        <div class="form-actions"><button class="btn btn-primary" type="submit">Lưu acc</button><button class="btn" type="button" id="resetForm">Làm mới biểu mẫu</button></div>
-      </form>
-      <div class="admin-list" id="adminList"></div>
-      <div class="form-actions"><button class="btn btn-danger" id="resetDemo">Khôi phục acc mẫu</button><button class="btn" id="logoutButton">Đóng phiên quản lý</button></div>
-    </div>
-  </div>
-</dialog>
-
 <script>
   // CẤU HÌNH: thay số điện thoại bên dưới bằng số Zalo của bạn (chỉ chữ số, gồm mã quốc gia nếu cần).
   const ZALO_PHONE = "0356959157";
-  const DEMO_ADMIN_CODE = "demo123"; // Không an toàn cho website thật vì mã nguồn phía trình duyệt là công khai.
-  const STORAGE_KEY = "ff-neon-shop-products-v1";
   const seedProducts = [
-    {id:"demo-1",name:"Acc Demo • Rank cao",price:150000,tag:"ACC DEMO",icon:"🔥",desc:"Tài khoản minh họa để thử giao diện. Thay bằng thông tin mô tả thật của bạn."},
-    {id:"demo-2",name:"Acc Demo • Nhiều vật phẩm",price:250000,tag:"ACC DEMO",icon:"💎",desc:"Mẫu thẻ sản phẩm. Không phải tài khoản thật và không có thông tin đăng nhập."},
-    {id:"demo-3",name:"Acc Demo • Bộ sưu tập",price:99000,tag:"ACC DEMO",icon:"👑",desc:"Bạn có thể sửa tên, giá, nhãn và mô tả trong phần Quản lý."}
+    {id:"demo-1",name:"Acc Free Fire • Rank cao",price:150000,tag:"LIÊN HỆ KIỂM TRA",icon:"🔥",desc:"Liên hệ Zalo shop để xác nhận thông tin tài khoản và tình trạng còn hàng trước khi mua."},
+    {id:"demo-2",name:"Acc Free Fire • Nhiều vật phẩm",price:250000,tag:"LIÊN HỆ KIỂM TRA",icon:"💎",desc:"Liên hệ Zalo shop để xem thông tin chi tiết và xác nhận tình trạng còn hàng trước khi mua."},
+    {id:"demo-3",name:"Acc Free Fire • Bộ sưu tập",price:99000,tag:"LIÊN HỆ KIỂM TRA",icon:"👑",desc:"Liên hệ Zalo shop để nhận thông tin chi tiết và xác nhận tình trạng còn hàng trước khi mua."}
   ];
   const $ = id => document.getElementById(id);
-  let products = loadProducts();
-  let adminUnlocked = false;
-
-  function loadProducts(){
-    try { const saved = localStorage.getItem(STORAGE_KEY); return saved ? JSON.parse(saved) : [...seedProducts]; }
-    catch { return [...seedProducts]; }
-  }
-  function saveProducts(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(products)); }
+  let products = [...seedProducts];
   function escapeHtml(value){ return String(value).replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch])); }
   function money(value){ return new Intl.NumberFormat("vi-VN",{style:"currency",currency:"VND",maximumFractionDigits:0}).format(value); }
   function zaloUrl(product){
@@ -164,48 +125,6 @@
     }));
     $("zaloTop").href = ZALO_PHONE === "SDT_CUA_BAN" ? "https://zalo.me/" : `https://zalo.me/${ZALO_PHONE.replace(/\D/g,"")}`;
   }
-  function renderAdminList(){
-    $("adminList").innerHTML = products.length ? products.map(p => `
-      <div class="admin-row"><div><b>${escapeHtml(p.name)}</b><small>${money(Number(p.price)||0)} · ${escapeHtml(p.tag||"Không có nhãn")}</small></div>
-      <div class="admin-row-actions"><button class="btn edit-btn" data-id="${escapeHtml(p.id)}">Sửa</button><button class="btn btn-danger delete-btn" data-id="${escapeHtml(p.id)}">Xóa</button></div></div>`).join("") : `<p class="muted">Chưa có acc nào. Hãy thêm acc bằng biểu mẫu phía trên.</p>`;
-    document.querySelectorAll(".edit-btn").forEach(b=>b.addEventListener("click",()=>editProduct(b.dataset.id)));
-    document.querySelectorAll(".delete-btn").forEach(b=>b.addEventListener("click",()=>deleteProduct(b.dataset.id)));
-  }
-  function resetForm(){ $("productForm").reset(); $("productId").value=""; }
-  function editProduct(id){
-    const p = products.find(item=>item.id===id); if(!p) return;
-    $("productId").value=p.id; $("productName").value=p.name; $("productPrice").value=p.price;
-    $("productTag").value=p.tag||""; $("productIcon").value=p.icon||"🎮"; $("productDesc").value=p.desc;
-    $("productName").focus();
-  }
-  function deleteProduct(id){
-    const p=products.find(item=>item.id===id); if(!p || !confirm(`Xóa "${p.name}" khỏi danh sách trên trình duyệt này?`)) return;
-    products=products.filter(item=>item.id!==id); saveProducts(); renderProducts(); renderAdminList();
-  }
-  $("openAdmin").addEventListener("click",()=>{$("adminDialog").showModal();});
-  $("closeAdmin").addEventListener("click",()=>$("adminDialog").close());
-  $("loginButton").addEventListener("click",()=>{
-    if($("adminPassword").value!==DEMO_ADMIN_CODE){alert("Mã quản lý chưa đúng.");return;}
-    adminUnlocked=true; $("loginBox").classList.add("hidden"); $("adminBox").classList.remove("hidden"); renderAdminList();
-  });
-  $("logoutButton").addEventListener("click",()=>{
-    adminUnlocked=false; $("adminBox").classList.add("hidden"); $("loginBox").classList.remove("hidden"); $("adminPassword").value="";
-  });
-  $("productForm").addEventListener("submit",e=>{
-    e.preventDefault();
-    if(!adminUnlocked) return;
-    const id=$("productId").value || (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()));
-    const item={id,name:$("productName").value.trim(),price:Number($("productPrice").value),tag:$("productTag").value.trim()||"FREE FIRE",icon:$("productIcon").value,desc:$("productDesc").value.trim()};
-    if(!item.name || !item.desc || !Number.isFinite(item.price) || item.price<0){alert("Vui lòng kiểm tra tên, mô tả và giá.");return;}
-    const idx=products.findIndex(p=>p.id===id);
-    if(idx>=0) products[idx]=item; else products.unshift(item);
-    saveProducts(); resetForm(); renderProducts(); renderAdminList();
-  });
-  $("resetForm").addEventListener("click",resetForm);
-  $("resetDemo").addEventListener("click",()=>{
-    if(!confirm("Khôi phục 3 acc minh họa? Danh sách hiện tại trên trình duyệt này sẽ bị thay thế.")) return;
-    products=[...seedProducts];saveProducts();resetForm();renderProducts();renderAdminList();
-  });
   $("search").addEventListener("input",renderProducts);
   $("sort").addEventListener("change",renderProducts);
   $("year").textContent=new Date().getFullYear();
