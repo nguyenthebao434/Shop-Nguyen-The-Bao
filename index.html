@@ -56,17 +56,17 @@
     <div>
       <span class="eyebrow">● SHOP ACC FREE FIRE</span>
       <h1>CHỌN ACC.<br><em>VÀO GAME.</em></h1>
-      <p>Khám phá các tài khoản Free Fire được đăng trong shop. Xem thông tin và liên hệ người bán qua Zalo để hỏi thêm trước khi giao dịch.</p>
+      <p>Shop tài khoản Free Fire của Nguyễn Thế Bảo. Nhắn Zalo để hỏi danh sách tài khoản, giá bán và tình trạng còn hàng.</p>
       <div class="stats">
         <div class="stat"><b id="statCount">0</b><span>Acc đang đăng</span></div>
         <div class="stat"><b>ZALO</b><span>0356959157</span></div>
-        <div class="stat"><b>NEON</b><span>Gaming shop</span></div>
+        <div class="stat"><b>NGUYỄN THẾ BẢO</b><span>Chủ shop</span></div>
       </div>
     </div>
-    <div class="hero-art"><div class="hero-icon">🎮</div><strong>LEVEL UP YOUR GAME</strong><small>FREE FIRE • NEON EDITION</small></div>
+    <div class="hero-art"><div class="hero-icon">🎮</div><strong>LEVEL UP YOUR GAME</strong><small>FREE FIRE • SHOP NGUYỄN THẾ BẢO</small></div>
   </section>
 
-  <div class="notice">⚠️ <b>Bản mẫu:</b> các acc minh họa bên dưới không phải tài khoản thật. Hãy chỉ đăng bán tài khoản bạn có quyền chuyển nhượng; không đăng mật khẩu hay thông tin đăng nhập công khai.</div>
+  <div class="notice">📌 <b>Shop Nguyễn Thế Bảo:</b> Vui lòng nhắn Zalo <b>0356959157</b> để hỏi danh sách acc hiện có, giá và tình trạng trước khi thanh toán. Không gửi mật khẩu hoặc mã OTP cho bất kỳ ai.</div>
 
   <section>
     <div class="section-head">
@@ -82,16 +82,12 @@
   </section>
 </main>
 
-<footer><div class="wrap">© <span id="year"></span> Shop Nguyễn Thế Bảo · Website mẫu miễn phí.<br>Free Fire là thương hiệu của chủ sở hữu tương ứng. Website này không phải trang chính thức của Garena.</div></footer>
+<footer><div class="wrap">© <span id="year"></span> Shop Nguyễn Thế Bảo.<br>Free Fire là thương hiệu của chủ sở hữu tương ứng. Website này không phải trang chính thức của Garena.</div></footer>
 
 <script>
   // CẤU HÌNH: thay số điện thoại bên dưới bằng số Zalo của bạn (chỉ chữ số, gồm mã quốc gia nếu cần).
   const ZALO_PHONE = "0356959157";
-  const seedProducts = [
-    {id:"demo-1",name:"Acc Free Fire • Rank cao",price:150000,tag:"LIÊN HỆ KIỂM TRA",icon:"🔥",desc:"Liên hệ Zalo shop để xác nhận thông tin tài khoản và tình trạng còn hàng trước khi mua."},
-    {id:"demo-2",name:"Acc Free Fire • Nhiều vật phẩm",price:250000,tag:"LIÊN HỆ KIỂM TRA",icon:"💎",desc:"Liên hệ Zalo shop để xem thông tin chi tiết và xác nhận tình trạng còn hàng trước khi mua."},
-    {id:"demo-3",name:"Acc Free Fire • Bộ sưu tập",price:99000,tag:"LIÊN HỆ KIỂM TRA",icon:"👑",desc:"Liên hệ Zalo shop để nhận thông tin chi tiết và xác nhận tình trạng còn hàng trước khi mua."}
-  ];
+  const seedProducts = []; // Chỉ hiển thị sản phẩm khi chủ shop thêm thông tin thật.
   const $ = id => document.getElementById(id);
   let products = [...seedProducts];
   function escapeHtml(value){ return String(value).replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch])); }
@@ -115,7 +111,7 @@
           <div class="card-bottom"><span class="price">${money(Number(p.price)||0)}</span>
           <a class="btn btn-green buy-link" data-id="${escapeHtml(p.id)}" href="${zaloUrl(p)}" target="_blank" rel="noopener">Hỏi mua ↗</a></div>
         </div>
-      </article>`).join("") : `<div class="empty">Không tìm thấy acc phù hợp.</div>`;
+      </article>`).join("") : `<div class="empty">${products.length ? "Không tìm thấy acc phù hợp." : "Shop đang cập nhật danh sách tài khoản. Nhắn Zalo 0356959157 để hỏi các acc hiện có."}<br><br><a class="btn btn-green" href="https://zalo.me/0356959157" target="_blank" rel="noopener">Liên hệ Zalo shop ↗</a></div>`;
     document.querySelectorAll(".buy-link").forEach(link => link.addEventListener("click", e => {
       const p = products.find(item => item.id === link.dataset.id);
       if(p && ZALO_PHONE === "SDT_CUA_BAN") {
