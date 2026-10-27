@@ -1,130 +1,51 @@
 <!doctype html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b0715">
-  <title>Shop Nguyễn Thế Bảo — Acc Free Fire</title>
-  <style>
-    :root{--bg:#090711;--panel:#141020;--panel2:#1b1530;--text:#f7f2ff;--muted:#b6abc9;--purple:#a855f7;--green:#45f3a6;--line:#302443;--danger:#ff647c}
-    *{box-sizing:border-box} body{margin:0;background:radial-gradient(ellipse at 15% 0%,#28113f 0,transparent 42%),radial-gradient(ellipse at 90% 12%,#102b2b 0,transparent 35%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;min-height:100vh}
-    a{color:inherit;text-decoration:none} button,input,select,textarea{font:inherit} button{cursor:pointer}
-    .wrap{width:min(1120px,calc(100% - 32px));margin:auto}
-    header{position:sticky;top:0;z-index:5;background:#0b0715df;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-    .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{font-size:1.12rem;font-weight:950;letter-spacing:.06em}.brand span{color:var(--green);text-shadow:0 0 18px #45f3a677}
-    .nav-actions{display:flex;gap:10px;align-items:center}
-    .btn{border:1px solid var(--line);border-radius:12px;padding:10px 15px;color:var(--text);background:var(--panel2);font-weight:750;display:inline-flex;align-items:center;justify-content:center;gap:8px}
-    .btn:hover{border-color:var(--purple);transform:translateY(-1px)} .btn-primary{background:linear-gradient(110deg,#8b35e9,#5624ad);border-color:#a96bff;box-shadow:0 0 22px #8b35e933}.btn-green{background:linear-gradient(110deg,#45f3a6,#17b981);color:#07130e;border:0}.btn-danger{background:#3b1425;border-color:#7a2944;color:#ffdce4}
-    .hero{padding:64px 0 34px;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:28px}
-    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;border:1px solid #3a2b50;border-radius:99px;color:var(--green);font-size:.8rem;font-weight:800;letter-spacing:.08em;background:#11101b}
-    h1{font-size:clamp(2.3rem,6vw,4.6rem);line-height:.98;letter-spacing:-.055em;margin:18px 0}
-    h1 em{font-style:normal;color:var(--green);text-shadow:0 0 28px #45f3a644}
-    .hero p{color:var(--muted);font-size:1.04rem;line-height:1.7;max-width:610px}
-    .hero-art{border:1px solid #45305d;border-radius:28px;min-height:245px;display:grid;place-items:center;text-align:center;background:linear-gradient(145deg,#27153d,#101c25 70%);box-shadow:0 0 60px #8b35e91c,inset 0 0 50px #45f3a60a;padding:24px;position:relative;overflow:hidden}
-    .hero-art:before,.hero-art:after{content:"";position:absolute;border:1px solid #45f3a633;border-radius:50%;width:230px;height:230px}.hero-art:after{width:310px;height:310px;border-color:#a855f733}
-    .hero-icon{font-size:5.3rem;filter:drop-shadow(0 0 25px #a855f7aa);z-index:1}.hero-art strong{font-size:1.2rem;z-index:1}.hero-art small{color:var(--muted);z-index:1}
-    .stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.stat{border:1px solid var(--line);border-radius:12px;padding:12px 16px;background:#100c1b}.stat b{display:block;font-size:1.1rem}.stat span{color:var(--muted);font-size:.8rem}
-    .section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin:22px 0 18px}.section-head h2{font-size:1.65rem;margin:0}.section-head p{color:var(--muted);margin:7px 0 0}
-    .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}.field{width:100%;background:#100c1b;color:var(--text);border:1px solid var(--line);border-radius:11px;padding:11px 12px;outline:none}.field:focus{border-color:var(--purple)}.search{flex:1;min-width:180px}
-    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:48px}
-    .card{background:linear-gradient(160deg,#191228,#100d1a);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.2s}.card:hover{transform:translateY(-3px);border-color:#7542a0;box-shadow:0 10px 32px #0005}
-    .card-cover{height:155px;display:grid;place-items:center;font-size:3.6rem;background:radial-gradient(circle at 50% 40%,#5a2b7c,#20152e 55%,#10101b);position:relative}
-    .tag{position:absolute;top:12px;left:12px;border:1px solid #45f3a66b;color:var(--green);background:#071a16d9;padding:5px 8px;border-radius:8px;font-size:.72rem;font-weight:850}
-    .card-body{padding:16px}.card h3{margin:0 0 8px;font-size:1.05rem}.desc{color:var(--muted);font-size:.87rem;min-height:38px;line-height:1.5}.card-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:16px}.price{font-size:1.15rem;font-weight:900;color:var(--green)}.card .btn{padding:9px 11px;font-size:.85rem}
-    .empty{padding:35px;border:1px dashed var(--line);border-radius:16px;text-align:center;color:var(--muted);grid-column:1/-1}
-    footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:.85rem;line-height:1.7}
-    .notice{border:1px solid #6a4b20;background:#21180d;color:#f7dca7;border-radius:13px;padding:13px 15px;font-size:.88rem;line-height:1.6;margin-bottom:26px}
-    dialog{border:1px solid #4a3562;border-radius:20px;background:#100c1b;color:var(--text);width:min(680px,calc(100% - 24px));max-height:88vh;overflow:auto;padding:0;box-shadow:0 24px 100px #000b}
-    dialog::backdrop{background:#05030acc;backdrop-filter:blur(5px)}.modal-head{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.modal-head h2{font-size:1.2rem;margin:0}.modal-content{padding:20px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.form-grid .full{grid-column:1/-1}.form-label{display:block;color:var(--muted);font-size:.82rem;margin:0 0 6px}.form-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.admin-list{display:grid;gap:9px;margin-top:18px}.admin-row{border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;align-items:center;justify-content:space-between;gap:10px}.admin-row small{display:block;color:var(--muted);margin-top:4px}.admin-row-actions{display:flex;gap:6px}.admin-row-actions .btn{padding:7px 9px;font-size:.8rem}.muted{color:var(--muted)}.hidden{display:none!important}
-    @media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:42px}.hero-art{min-height:190px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.section-head{align-items:start;flex-direction:column}.nav{min-height:64px}.brand{font-size:.98rem}}
-    @media(max-width:480px){.wrap{width:min(100% - 22px,1120px)}.nav-actions .btn{padding:9px 10px;font-size:.82rem}.grid{grid-template-columns:1fr}.card-cover{height:140px}.hero{padding-top:32px}.form-grid{grid-template-columns:1fr}.form-grid .full{grid-column:auto}.hero-art{min-height:160px}.hero-icon{font-size:4rem}.stats{gap:8px}.stat{padding:10px 12px}}
-  </style>
-</head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a0711"><title>Shop Nguyễn Thế Bảo | Acc Free Fire</title>
+<style>
+:root{--bg:#0a0711;--panel:#171020;--line:#352444;--text:#f7f1ff;--muted:#b7a9c8;--green:#45f3a6;--red:#ff8397}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 10% 0%,#28123d,transparent 38%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif}a{color:var(--green)}button,input,textarea,select{font:inherit}button,.btn{border:0;border-radius:10px;padding:11px 14px;background:var(--green);color:#07130d;font-weight:800;cursor:pointer;text-decoration:none;display:inline-block}button.secondary,.btn.secondary{background:#2a2036;color:var(--text);border:1px solid var(--line)}button.danger{background:#4a1c2b;color:#ffdce3}button:disabled{opacity:.5;cursor:wait}.wrap{width:min(1080px,calc(100% - 28px));margin:auto}header{border-bottom:1px solid var(--line);background:#0d0915ef;position:sticky;top:0;z-index:4;backdrop-filter:blur(12px)}.head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;flex-wrap:wrap}.brand{font-size:18px;font-weight:950;color:var(--green)}.nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.hero{padding:38px 0 24px;display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:center}.eyebrow{color:var(--green);font-size:12px;font-weight:900;letter-spacing:2px}h1{font-size:clamp(35px,7vw,60px);line-height:1.03;margin:12px 0}h1 span{color:var(--green)}p{color:var(--muted);line-height:1.65}.hero-art{border:1px solid #4c3260;border-radius:22px;padding:26px;text-align:center;background:linear-gradient(145deg,#27143c,#101e24)}.hero-art .emoji{font-size:72px}.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:9px 11px}.notice{margin:12px 0 22px;padding:13px 15px;border:1px solid #685020;border-radius:12px;background:#21190e;color:#f6dda5;line-height:1.6}.section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:24px}.section-head h2{margin-bottom:5px}.filters{display:flex;gap:9px;flex-wrap:wrap;margin:15px 0}.field{display:grid;gap:6px;margin-bottom:12px}.field label{font-size:13px;color:var(--muted)}input,textarea,select{width:100%;background:#0e0a16;color:var(--text);border:1px solid var(--line);border-radius:9px;padding:11px;outline:none}input:focus,textarea:focus,select:focus{border-color:var(--green)}.filters input{flex:1;min-width:170px}.filters select{width:auto;min-width:130px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:18px 0 38px}.card{border:1px solid var(--line);background:linear-gradient(180deg,#1a1225,#120d1b);border-radius:16px;overflow:hidden}.product-image{height:160px;background:#21172e;display:grid;place-items:center;overflow:hidden}.product-image img{width:100%;height:100%;object-fit:cover}.product-image .fallback{font-size:54px}.product-body{padding:14px}.product-body h3{margin:0 0 7px}.price{font-size:21px;font-weight:900;color:var(--green)}.meta,.small{font-size:12px;color:var(--muted)}.meta{margin:7px 0 12px}.desc{font-size:14px;min-height:42px;white-space:pre-wrap}.card-actions{display:flex;gap:8px;flex-wrap:wrap}.empty{grid-column:1/-1;text-align:center;padding:28px;border:1px dashed var(--line);border-radius:14px;color:var(--muted);line-height:1.7}.panel{border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:18px;margin:18px 0 35px}.panel h2{margin-top:0}.hidden{display:none!important}.admin-layout{display:grid;grid-template-columns:1fr 1fr;gap:18px}.status{font-size:13px;color:var(--muted);margin:10px 0;line-height:1.5}.status.error{color:#ff9cac}.status.ok{color:var(--green)}.admin-list{display:grid;gap:9px}.admin-row{display:flex;justify-content:space-between;gap:10px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:10px}.admin-row small{display:block;color:var(--muted);margin-top:4px}.modal-backdrop{position:fixed;inset:0;background:#000c;z-index:10;display:grid;place-items:center;padding:14px;overflow:auto}.modal{width:min(470px,100%);max-height:94vh;overflow:auto;background:#171020;border:1px solid var(--line);border-radius:16px;padding:19px}.topline{display:flex;justify-content:space-between;align-items:center;gap:12px}.tabs{display:flex;gap:8px;margin:12px 0}.tabs button{flex:1}.tabs button.active{outline:2px solid var(--green)}.order-card{border:1px solid var(--line);border-radius:11px;padding:12px;margin:9px 0}.order-card p{margin:6px 0}.order-card strong{color:var(--green)}footer{border-top:1px solid var(--line);padding:23px 0;color:var(--muted);font-size:13px;line-height:1.7}@media(max-width:720px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.admin-layout{grid-template-columns:1fr}}@media(max-width:480px){.grid{grid-template-columns:1fr}.product-image{height:190px}.brand{font-size:16px}}
+</style></head>
 <body>
-<header>
-  <div class="wrap nav">
-    <a class="brand" href="#"><span>SHOP</span> NGUYỄN THẾ BẢO</a>
-    <div class="nav-actions">
-      <a class="btn btn-green" id="zaloTop" href="https://zalo.me/" target="_blank" rel="noopener">Chat Zalo ↗</a>
-    </div>
-  </div>
-</header>
-
+<header><div class="wrap head"><div class="brand">SHOP NGUYỄN THẾ BẢO</div><div class="nav"><button id="accountBtn" class="secondary">Đăng nhập / Đăng ký</button><button id="ordersBtn" class="secondary hidden">Đơn hàng của tôi</button><a class="btn" href="https://zalo.me/0356959157" target="_blank" rel="noopener">Zalo 0356959157</a></div></div></header>
 <main class="wrap">
-  <section class="hero">
-    <div>
-      <span class="eyebrow">● SHOP ACC FREE FIRE</span>
-      <h1>CHỌN ACC.<br><em>VÀO GAME.</em></h1>
-      <p>Shop tài khoản Free Fire của Nguyễn Thế Bảo. Nhắn Zalo để hỏi danh sách tài khoản, giá bán và tình trạng còn hàng.</p>
-      <div class="stats">
-        <div class="stat"><b id="statCount">0</b><span>Acc đang đăng</span></div>
-        <div class="stat"><b>ZALO</b><span>0356959157</span></div>
-        <div class="stat"><b>NGUYỄN THẾ BẢO</b><span>Chủ shop</span></div>
-      </div>
-    </div>
-    <div class="hero-art"><div class="hero-icon">🎮</div><strong>LEVEL UP YOUR GAME</strong><small>FREE FIRE • SHOP NGUYỄN THẾ BẢO</small></div>
-  </section>
-
-  <div class="notice">📌 <b>Shop Nguyễn Thế Bảo:</b> Vui lòng nhắn Zalo <b>0356959157</b> để hỏi danh sách acc hiện có, giá và tình trạng trước khi thanh toán. Không gửi mật khẩu hoặc mã OTP cho bất kỳ ai.</div>
-
-  <section>
-    <div class="section-head">
-      <div><h2>Acc đang có</h2><p>Chọn một acc để xem giá và liên hệ người bán.</p></div>
-    </div>
-    <div class="filters">
-      <input class="field search" id="search" placeholder="Tìm theo tên acc hoặc mô tả…" aria-label="Tìm acc">
-      <select class="field" id="sort" style="width:auto;min-width:155px" aria-label="Sắp xếp">
-        <option value="default">Mới cập nhật</option><option value="low">Giá thấp đến cao</option><option value="high">Giá cao đến thấp</option>
-      </select>
-    </div>
-    <div class="grid" id="productGrid"></div>
-  </section>
+<section class="hero"><div><div class="eyebrow">SHOP ACC FREE FIRE</div><h1>SHOP<br><span>NGUYỄN THẾ BẢO</span></h1><p>Xem sản phẩm, tạo tài khoản khách hàng và gửi yêu cầu mua. Shop sẽ xác nhận thông tin qua Zalo trước khi thanh toán.</p><div class="pills"><div class="pill">🎮 Acc Free Fire</div><div class="pill">👤 Tài khoản khách hàng</div><div class="pill">💬 Hỗ trợ Zalo</div></div></div><div class="hero-art"><div class="emoji">🎮</div><h2>SHOP NGUYỄN THẾ BẢO</h2><p>Sản phẩm được tải từ cơ sở dữ liệu.</p></div></section>
+<div class="notice">Không nhập mật khẩu game, mật khẩu email hoặc mã OTP vào phần mô tả. Hãy xác minh thông tin và quy định trò chơi trước khi giao dịch.</div>
+<section><div class="section-head"><div><div class="eyebrow">DANH SÁCH SẢN PHẨM</div><h2>Acc đang đăng bán</h2></div><span id="count" class="small">Đang tải...</span></div><div class="filters"><input id="search" placeholder="Tìm theo tên hoặc mô tả..."><select id="sort"><option value="new">Mới đăng trước</option><option value="low">Giá thấp đến cao</option><option value="high">Giá cao đến thấp</option></select></div><div id="products" class="grid"><div class="empty">Đang tải sản phẩm...</div></div></section>
+<section id="ordersSection" class="panel hidden"><div class="topline"><div><div class="eyebrow">TÀI KHOẢN KHÁCH HÀNG</div><h2>Đơn hàng của tôi</h2></div><button id="hideOrders" class="secondary">Ẩn</button></div><div id="myOrders">Đang tải...</div></section>
+<section id="adminSection" class="panel hidden"><div class="topline"><div><div class="eyebrow">KHU VỰC CHỦ SHOP</div><h2>Quản lý sản phẩm</h2></div><button id="logout" class="secondary">Đăng xuất</button></div><p>Chỉ tài khoản đã được cấp quyền quản trị mới có thể quản lý sản phẩm và xem tất cả đơn hàng.</p><div class="admin-layout"><form id="productForm"><input type="hidden" id="productId"><div class="field"><label for="pName">Tên sản phẩm *</label><input id="pName" maxlength="100" required></div><div class="field"><label for="pPrice">Giá (VNĐ) *</label><input id="pPrice" type="number" min="0" step="1000" required></div><div class="field"><label for="pLevel">Cấp độ / thông tin ngắn</label><input id="pLevel" maxlength="120"></div><div class="field"><label for="pImage">Link ảnh HTTPS</label><input id="pImage" type="url" placeholder="https://..."></div><div class="field"><label for="pDescription">Mô tả</label><textarea id="pDescription" rows="3" maxlength="1000"></textarea></div><div class="field"><label for="pStatus">Trạng thái</label><select id="pStatus"><option value="available">Còn hàng</option><option value="sold">Đã bán</option></select></div><div class="pills"><button type="submit">Lưu sản phẩm</button><button type="button" id="clearForm" class="secondary">Làm mới form</button></div><div id="adminMessage" class="status"></div></form><div><h3>Sản phẩm đã đăng</h3><div id="adminProducts" class="admin-list"></div><h3>Đơn hàng khách</h3><div id="allOrders" class="admin-list"></div></div></div></section>
+<footer><b>Shop Nguyễn Thế Bảo</b><br>Liên hệ: <a href="https://zalo.me/0356959157" target="_blank" rel="noopener">Zalo 0356959157</a><br><button id="adminLoginOpen" class="secondary">Đăng nhập chủ shop</button><p class="small">Khách có thể đăng ký tài khoản. Quyền quản trị phải được cấp riêng trong Supabase.</p></footer>
 </main>
-
-<footer><div class="wrap">© <span id="year"></span> Shop Nguyễn Thế Bảo.<br>Free Fire là thương hiệu của chủ sở hữu tương ứng. Website này không phải trang chính thức của Garena.</div></footer>
-
-<script>
-  // CẤU HÌNH: thay số điện thoại bên dưới bằng số Zalo của bạn (chỉ chữ số, gồm mã quốc gia nếu cần).
-  const ZALO_PHONE = "0356959157";
-  const seedProducts = []; // Chỉ hiển thị sản phẩm khi chủ shop thêm thông tin thật.
-  const $ = id => document.getElementById(id);
-  let products = [...seedProducts];
-  function escapeHtml(value){ return String(value).replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch])); }
-  function money(value){ return new Intl.NumberFormat("vi-VN",{style:"currency",currency:"VND",maximumFractionDigits:0}).format(value); }
-  function zaloUrl(product){
-    const phone = ZALO_PHONE.replace(/\D/g,"");
-    const message = `Chào shop, mình muốn hỏi ${product.name} - giá ${money(product.price)}.`;
-    // Zalo links to a phone number; the prefilled message may not be supported in every app/browser.
-    return phone ? `https://zalo.me/${phone}` : "https://zalo.me/";
-  }
-  function renderProducts(){
-    const query = $("search").value.trim().toLocaleLowerCase("vi");
-    let list = products.filter(p => `${p.name} ${p.desc} ${p.tag}`.toLocaleLowerCase("vi").includes(query));
-    if($("sort").value==="low") list.sort((a,b)=>a.price-b.price);
-    if($("sort").value==="high") list.sort((a,b)=>b.price-a.price);
-    $("statCount").textContent = products.length;
-    $("productGrid").innerHTML = list.length ? list.map(p => `
-      <article class="card">
-        <div class="card-cover"><span class="tag">${escapeHtml(p.tag || "FREE FIRE")}</span>${escapeHtml(p.icon || "🎮")}</div>
-        <div class="card-body"><h3>${escapeHtml(p.name)}</h3><div class="desc">${escapeHtml(p.desc)}</div>
-          <div class="card-bottom"><span class="price">${money(Number(p.price)||0)}</span>
-          <a class="btn btn-green buy-link" data-id="${escapeHtml(p.id)}" href="${zaloUrl(p)}" target="_blank" rel="noopener">Hỏi mua ↗</a></div>
-        </div>
-      </article>`).join("") : `<div class="empty">${products.length ? "Không tìm thấy acc phù hợp." : "Shop đang cập nhật danh sách tài khoản. Nhắn Zalo 0356959157 để hỏi các acc hiện có."}<br><br><a class="btn btn-green" href="https://zalo.me/0356959157" target="_blank" rel="noopener">Liên hệ Zalo shop ↗</a></div>`;
-    document.querySelectorAll(".buy-link").forEach(link => link.addEventListener("click", e => {
-      const p = products.find(item => item.id === link.dataset.id);
-      if(p && ZALO_PHONE === "SDT_CUA_BAN") {
-        e.preventDefault();
-        alert("Bạn cần sửa ZALO_PHONE trong file index.html thành số điện thoại Zalo của shop trước khi dùng nút mua.");
-      }
-    }));
-    $("zaloTop").href = ZALO_PHONE === "SDT_CUA_BAN" ? "https://zalo.me/" : `https://zalo.me/${ZALO_PHONE.replace(/\D/g,"")}`;
-  }
-  $("search").addEventListener("input",renderProducts);
-  $("sort").addEventListener("change",renderProducts);
-  $("year").textContent=new Date().getFullYear();
-  renderProducts();
-</script>
-</body>
-</html>
+<div id="authModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="authTitle"><div class="modal"><div class="topline"><h2 id="authTitle">Tài khoản</h2><button id="closeAuth" class="secondary">Đóng</button></div><div class="tabs"><button id="tabLogin" class="active">Đăng nhập</button><button id="tabRegister" class="secondary">Đăng ký</button></div><form id="authForm"><div class="field"><label for="authEmail">Email</label><input id="authEmail" type="email" autocomplete="email" required></div><div class="field"><label for="authPassword">Mật khẩu (ít nhất 8 ký tự)</label><input id="authPassword" type="password" minlength="8" autocomplete="current-password" required></div><button id="authSubmit" type="submit">Đăng nhập</button><div id="authMessage" class="status" role="status"></div></form><p class="small">Nếu đăng ký yêu cầu xác minh email, hãy mở email xác minh trước khi đăng nhập.</p></div></div>
+<script type="module">
+import {createClient} from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+const SUPABASE_URL='PASTE_SUPABASE_PROJECT_URL_HERE';
+const SUPABASE_KEY='PASTE_SUPABASE_PUBLISHABLE_OR_ANON_KEY_HERE';
+const ZALO_URL='https://zalo.me/0356959157';
+const configured=SUPABASE_URL.startsWith('https://')&&!SUPABASE_URL.includes('PASTE_')&&!SUPABASE_KEY.includes('PASTE_');
+const sb=configured?createClient(SUPABASE_URL,SUPABASE_KEY):null;
+const $=id=>document.getElementById(id);let products=[],isRegister=false,isAdmin=false;
+const money=n=>new Intl.NumberFormat('vi-VN',{style:'currency',currency:'VND',maximumFractionDigits:0}).format(n||0);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function msg(el,t,type=''){el.textContent=t;el.className='status '+type}
+function renderProducts(){let q=$('search').value.trim().toLowerCase(),list=products.filter(p=>(p.name+' '+(p.description||'')+' '+(p.level||'')).toLowerCase().includes(q));if($('sort').value==='low')list.sort((a,b)=>a.price-b.price);if($('sort').value==='high')list.sort((a,b)=>b.price-a.price);if($('sort').value==='new')list.sort((a,b)=>new Date(b.created_at||0)-new Date(a.created_at||0));$('count').textContent=`${list.length} sản phẩm`;$('products').innerHTML=list.length?list.map(p=>`<article class="card"><div class="product-image">${p.image_url?`<img src="${esc(p.image_url)}" alt="${esc(p.name)}" loading="lazy" onerror="this.style.display='none'">`:'<div class="fallback">🎮</div>'}</div><div class="product-body"><h3>${esc(p.name)}</h3><div class="price">${money(p.price)}</div><div class="meta">${esc(p.level||'')} · ${p.status==='sold'?'ĐÃ BÁN':'CÒN HÀNG'}</div><p class="desc">${esc(p.description||'Liên hệ shop để biết thêm thông tin.')}</p><div class="card-actions"><button ${p.status==='sold'?'disabled':''} data-order="${p.id}">${p.status==='sold'?'Đã bán':'Gửi yêu cầu mua'}</button><a class="btn secondary" href="${ZALO_URL}" target="_blank" rel="noopener">Zalo</a></div></div></article>`).join(''):`<div class="empty">Chưa có sản phẩm phù hợp. Liên hệ <a href="${ZALO_URL}">Zalo 0356959157</a>.</div>`}
+async function loadProducts(){if(!sb){$('products').innerHTML='<div class="empty">Chưa kết nối Supabase. Chủ shop cần cấu hình URL và key trong mã nguồn trước khi dùng.</div>';$('count').textContent='Chưa kết nối';return}const {data,error}=await sb.from('products').select('*').order('created_at',{ascending:false});if(error){$('products').innerHTML='<div class="empty">Không tải được sản phẩm. Kiểm tra cấu hình Supabase và SQL.</div>';console.error(error);return}products=data||[];renderProducts();if(isAdmin)renderAdmin()}
+function renderAdmin(){$('adminProducts').innerHTML=products.length?products.map(p=>`<div class="admin-row"><div><b>${esc(p.name)}</b><small>${money(p.price)} · ${p.status==='sold'?'Đã bán':'Còn hàng'}</small></div><div class="pills"><button class="secondary" data-edit="${p.id}">Sửa</button><button class="danger" data-delete="${p.id}">Xóa</button></div></div>`).join(''):'<div class="empty">Chưa có sản phẩm.</div>'}
+async function getAdmin(){if(!sb)return false;const {data,error}=await sb.rpc('is_admin');return !error&&data===true}
+async function loadOrders(admin=false){if(!sb)return;let query=sb.from('orders').select('id,product_id,product_name,price,status,created_at,customer_id').order('created_at',{ascending:false}).limit(100);const {data,error}=await query;if(error){console.error(error);return []}return data||[]}
+function orderHtml(o,admin=false){return `<div class="order-card"><b>${esc(o.product_name)}</b><p><strong>${money(o.price)}</strong> · ${esc(o.status)}</p><p class="small">Mã đơn: ${esc(o.id)}<br>${new Date(o.created_at).toLocaleString('vi-VN')}${admin?'<br>Khách ID: '+esc(o.customer_id):''}</p>${admin?`<select data-order-status="${o.id}"><option value="pending" ${o.status==='pending'?'selected':''}>Chờ xác nhận</option><option value="confirmed" ${o.status==='confirmed'?'selected':''}>Đã xác nhận</option><option value="completed" ${o.status==='completed'?'selected':''}>Hoàn tất</option><option value="cancelled" ${o.status==='cancelled'?'selected':''}>Đã hủy</option></select>`:''}</div>`}
+async function refreshAuth(){if(!sb)return;const {data:{session}}=await sb.auth.getSession();const logged=!!session;$('accountBtn').textContent=logged?'Tài khoản / Đăng xuất':'Đăng nhập / Đăng ký';$('ordersBtn').classList.toggle('hidden',!logged);isAdmin=logged&&await getAdmin();$('adminSection').classList.toggle('hidden',!isAdmin);if(isAdmin){renderAdmin();const orders=await loadOrders(true);$('allOrders').innerHTML=orders.length?orders.map(o=>orderHtml(o,true)).join(''):'<p class="small">Chưa có đơn hàng.</p>'}if(!logged){$('ordersSection').classList.add('hidden');$('adminSection').classList.add('hidden')}}
+function openAuth(admin=false){isRegister=false;$('tabRegister').classList.toggle('active',false);$('tabRegister').classList.add('secondary');$('tabLogin').classList.add('active');$('tabLogin').classList.remove('secondary');$('authTitle').textContent=admin?'Đăng nhập chủ shop':'Tài khoản khách hàng';$('authModal').classList.remove('hidden');$('authMessage').textContent='';$('authSubmit').textContent='Đăng nhập';$('tabRegister').classList.toggle('hidden',admin);$('authForm').dataset.admin=admin?'yes':'no'}
+$('accountBtn').addEventListener('click',async()=>{if(!sb){openAuth();msg($('authMessage'),'Chưa cấu hình Supabase URL và key trong index.html.','error');return}const {data:{session}}=await sb.auth.getSession();if(session){if(confirm('Bạn đã đăng nhập. Đăng xuất khỏi tài khoản này?')){await sb.auth.signOut();await refreshAuth()}else openAuth()}else openAuth()});
+$('adminLoginOpen').addEventListener('click',()=>openAuth(true));$('closeAuth').addEventListener('click',()=>$('authModal').classList.add('hidden'));$('authModal').addEventListener('click',e=>{if(e.target===$('authModal'))$('authModal').classList.add('hidden')});
+$('tabLogin').addEventListener('click',()=>{isRegister=false;$('tabLogin').classList.add('active');$('tabLogin').classList.remove('secondary');$('tabRegister').classList.remove('active');$('tabRegister').classList.add('secondary');$('authSubmit').textContent='Đăng nhập';msg($('authMessage'),'')});
+$('tabRegister').addEventListener('click',()=>{isRegister=true;$('tabRegister').classList.add('active');$('tabRegister').classList.remove('secondary');$('tabLogin').classList.remove('active');$('tabLogin').classList.add('secondary');$('authSubmit').textContent='Tạo tài khoản';msg($('authMessage'),'')});
+$('authForm').addEventListener('submit',async e=>{e.preventDefault();if(!sb){msg($('authMessage'),'Chưa cấu hình Supabase trong mã nguồn.','error');return}const email=$('authEmail').value.trim(),password=$('authPassword').value;let result;if(isRegister&&$('authForm').dataset.admin!=='yes'){result=await sb.auth.signUp({email,password})}else{result=await sb.auth.signInWithPassword({email,password})}if(result.error){msg($('authMessage'),result.error.message,'error');return}if(isRegister){msg($('authMessage'),'Đăng ký gửi thành công. Nếu yêu cầu xác minh email, hãy mở email rồi đăng nhập.','ok');return}await refreshAuth();if($('authForm').dataset.admin==='yes'&&!isAdmin){await sb.auth.signOut();await refreshAuth();msg($('authMessage'),'Tài khoản này chưa được cấp quyền chủ shop.','error');return}$('authModal').classList.add('hidden')});
+$('search').addEventListener('input',renderProducts);$('sort').addEventListener('change',renderProducts);
+$('products').addEventListener('click',async e=>{const b=e.target.closest('[data-order]');if(!b)return;if(!sb){alert('Shop chưa được cấu hình.');return}const {data:{session}}=await sb.auth.getSession();if(!session){openAuth();msg($('authMessage'),'Đăng nhập hoặc đăng ký trước khi gửi yêu cầu mua.');return}const p=products.find(x=>x.id===b.dataset.order);if(!p||p.status==='sold')return;if(!confirm(`Gửi yêu cầu mua "${p.name}" giá ${money(p.price)}? Đây chưa phải thanh toán.`))return;const {error}=await sb.from('orders').insert({product_id:p.id,product_name:p.name,price:p.price});if(error){alert('Không gửi được yêu cầu: '+error.message);return}alert('Đã gửi yêu cầu. Shop sẽ liên hệ xác nhận qua Zalo.');if(isAdmin)await refreshAuth()});
+$('ordersBtn').addEventListener('click',async()=>{const {data,error}=await sb.from('orders').select('id,product_name,price,status,created_at').order('created_at',{ascending:false});if(error){alert(error.message);return}$('myOrders').innerHTML=data.length?data.map(o=>orderHtml(o)).join(''):'<p class="small">Bạn chưa có đơn hàng.</p>';$('ordersSection').classList.remove('hidden');$('ordersSection').scrollIntoView({behavior:'smooth'})});$('hideOrders').addEventListener('click',()=>$('ordersSection').classList.add('hidden'));
+function clearForm(){$('productForm').reset();$('productId').value='';msg($('adminMessage'),'')}
+$('clearForm').addEventListener('click',clearForm);$('logout').addEventListener('click',async()=>{await sb.auth.signOut();await refreshAuth()});
+$('productForm').addEventListener('submit',async e=>{e.preventDefault();if(!isAdmin){msg($('adminMessage'),'Bạn không có quyền quản trị.','error');return}const item={name:$('pName').value.trim(),price:Number($('pPrice').value),level:$('pLevel').value.trim(),image_url:$('pImage').value.trim()||null,description:$('pDescription').value.trim(),status:$('pStatus').value};if(!item.name||!Number.isFinite(item.price)||item.price<0){msg($('adminMessage'),'Kiểm tra tên và giá.','error');return}const id=$('productId').value;const r=id?await sb.from('products').update(item).eq('id',id):await sb.from('products').insert(item);if(r.error){msg($('adminMessage'),r.error.message,'error');return}msg($('adminMessage'),'Đã lưu sản phẩm.','ok');clearForm();await loadProducts();await refreshAuth()});
+$('adminProducts').addEventListener('click',async e=>{const edit=e.target.closest('[data-edit]'),del=e.target.closest('[data-delete]');if(edit){const p=products.find(x=>x.id===edit.dataset.edit);if(!p)return;$('productId').value=p.id;$('pName').value=p.name;$('pPrice').value=p.price;$('pLevel').value=p.level||'';$('pImage').value=p.image_url||'';
