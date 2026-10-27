@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0715">
+  <title>FF NEON SHOP — Acc Free Fire</title>
+  <style>
+    :root{--bg:#090711;--panel:#141020;--panel2:#1b1530;--text:#f7f2ff;--muted:#b6abc9;--purple:#a855f7;--green:#45f3a6;--line:#302443;--danger:#ff647c}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(ellipse at 15% 0%,#28113f 0,transparent 42%),radial-gradient(ellipse at 90% 12%,#102b2b 0,transparent 35%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;min-height:100vh}
+    a{color:inherit;text-decoration:none} button,input,select,textarea{font:inherit} button{cursor:pointer}
+    .wrap{width:min(1120px,calc(100% - 32px));margin:auto}
+    header{position:sticky;top:0;z-index:5;background:#0b0715df;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{font-size:1.12rem;font-weight:950;letter-spacing:.06em}.brand span{color:var(--green);text-shadow:0 0 18px #45f3a677}
+    .nav-actions{display:flex;gap:10px;align-items:center}
+    .btn{border:1px solid var(--line);border-radius:12px;padding:10px 15px;color:var(--text);background:var(--panel2);font-weight:750;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+    .btn:hover{border-color:var(--purple);transform:translateY(-1px)} .btn-primary{background:linear-gradient(110deg,#8b35e9,#5624ad);border-color:#a96bff;box-shadow:0 0 22px #8b35e933}.btn-green{background:linear-gradient(110deg,#45f3a6,#17b981);color:#07130e;border:0}.btn-danger{background:#3b1425;border-color:#7a2944;color:#ffdce4}
+    .hero{padding:64px 0 34px;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:28px}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;border:1px solid #3a2b50;border-radius:99px;color:var(--green);font-size:.8rem;font-weight:800;letter-spacing:.08em;background:#11101b}
+    h1{font-size:clamp(2.3rem,6vw,4.6rem);line-height:.98;letter-spacing:-.055em;margin:18px 0}
+    h1 em{font-style:normal;color:var(--green);text-shadow:0 0 28px #45f3a644}
+    .hero p{color:var(--muted);font-size:1.04rem;line-height:1.7;max-width:610px}
+    .hero-art{border:1px solid #45305d;border-radius:28px;min-height:245px;display:grid;place-items:center;text-align:center;background:linear-gradient(145deg,#27153d,#101c25 70%);box-shadow:0 0 60px #8b35e91c,inset 0 0 50px #45f3a60a;padding:24px;position:relative;overflow:hidden}
+    .hero-art:before,.hero-art:after{content:"";position:absolute;border:1px solid #45f3a633;border-radius:50%;width:230px;height:230px}.hero-art:after{width:310px;height:310px;border-color:#a855f733}
+    .hero-icon{font-size:5.3rem;filter:drop-shadow(0 0 25px #a855f7aa);z-index:1}.hero-art strong{font-size:1.2rem;z-index:1}.hero-art small{color:var(--muted);z-index:1}
+    .stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.stat{border:1px solid var(--line);border-radius:12px;padding:12px 16px;background:#100c1b}.stat b{display:block;font-size:1.1rem}.stat span{color:var(--muted);font-size:.8rem}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin:22px 0 18px}.section-head h2{font-size:1.65rem;margin:0}.section-head p{color:var(--muted);margin:7px 0 0}
+    .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}.field{width:100%;background:#100c1b;color:var(--text);border:1px solid var(--line);border-radius:11px;padding:11px 12px;outline:none}.field:focus{border-color:var(--purple)}.search{flex:1;min-width:180px}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:48px}
+    .card{background:linear-gradient(160deg,#191228,#100d1a);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.2s}.card:hover{transform:translateY(-3px);border-color:#7542a0;box-shadow:0 10px 32px #0005}
+    .card-cover{height:155px;display:grid;place-items:center;font-size:3.6rem;background:radial-gradient(circle at 50% 40%,#5a2b7c,#20152e 55%,#10101b);position:relative}
+    .tag{position:absolute;top:12px;left:12px;border:1px solid #45f3a66b;color:var(--green);background:#071a16d9;padding:5px 8px;border-radius:8px;font-size:.72rem;font-weight:850}
+    .card-body{padding:16px}.card h3{margin:0 0 8px;font-size:1.05rem}.desc{color:var(--muted);font-size:.87rem;min-height:38px;line-height:1.5}.card-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:16px}.price{font-size:1.15rem;font-weight:900;color:var(--green)}.card .btn{padding:9px 11px;font-size:.85rem}
+    .empty{padding:35px;border:1px dashed var(--line);border-radius:16px;text-align:center;color:var(--muted);grid-column:1/-1}
+    footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:.85rem;line-height:1.7}
+    .notice{border:1px solid #6a4b20;background:#21180d;color:#f7dca7;border-radius:13px;padding:13px 15px;font-size:.88rem;line-height:1.6;margin-bottom:26px}
+    dialog{border:1px solid #4a3562;border-radius:20px;background:#100c1b;color:var(--text);width:min(680px,calc(100% - 24px));max-height:88vh;overflow:auto;padding:0;box-shadow:0 24px 100px #000b}
+    dialog::backdrop{background:#05030acc;backdrop-filter:blur(5px)}.modal-head{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.modal-head h2{font-size:1.2rem;margin:0}.modal-content{padding:20px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.form-grid .full{grid-column:1/-1}.form-label{display:block;color:var(--muted);font-size:.82rem;margin:0 0 6px}.form-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.admin-list{display:grid;gap:9px;margin-top:18px}.admin-row{border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;align-items:center;justify-content:space-between;gap:10px}.admin-row small{display:block;color:var(--muted);margin-top:4px}.admin-row-actions{display:flex;gap:6px}.admin-row-actions .btn{padding:7px 9px;font-size:.8rem}.muted{color:var(--muted)}.hidden{display:none!important}
+    @media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:42px}.hero-art{min-height:190px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.section-head{align-items:start;flex-direction:column}.nav{min-height:64px}.brand{font-size:.98rem}}
+    @media(max-width:480px){.wrap{width:min(100% - 22px,1120px)}.nav-actions .btn{padding:9px 10px;font-size:.82rem}.grid{grid-template-columns:1fr}.card-cover{height:140px}.hero{padding-top:32px}.form-grid{grid-template-columns:1fr}.form-grid .full{grid-column:auto}.hero-art{min-height:160px}.hero-icon{font-size:4rem}.stats{gap:8px}.stat{padding:10px 12px}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#"><span>FF</span> NEON SHOP</a>
+    <div class="nav-actions">
+      <a class="btn btn-green" id="zaloTop" href="https://zalo.me/" target="_blank" rel="noopener">Chat Zalo ↗</a>
+      <button class="btn" id="openAdmin">⚙ Quản lý</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <span class="eyebrow">● SHOP ACC FREE FIRE</span>
+      <h1>CHỌN ACC.<br><em>VÀO GAME.</em></h1>
+      <p>Khám phá các tài khoản Free Fire được đăng trong shop. Xem thông tin và liên hệ người bán qua Zalo để hỏi thêm trước khi giao dịch.</p>
+      <div class="stats">
+        <div class="stat"><b id="statCount">0</b><span>Acc đang đăng</span></div>
+        <div class="stat"><b>24/7</b><span>Gửi tin nhắn</span></div>
+        <div class="stat"><b>NEON</b><span>Gaming shop</span></div>
+      </div>
+    </div>
+    <div class="hero-art"><div class="hero-icon">🎮</div><strong>LEVEL UP YOUR GAME</strong><small>FREE FIRE • NEON EDITION</small></div>
+  </section>
+
+  <div class="notice">⚠️ <b>Bản mẫu:</b> các acc minh họa bên dưới không phải tài khoản thật. Hãy chỉ đăng bán tài khoản bạn có quyền chuyển nhượng; không đăng mật khẩu hay thông tin đăng nhập công khai.</div>
+
+  <section>
+    <div class="section-head">
+      <div><h2>Acc đang có</h2><p>Chọn một acc để xem giá và liên hệ người bán.</p></div>
+    </div>
+    <div class="filters">
+      <input class="field search" id="search" placeholder="Tìm theo tên acc hoặc mô tả…" aria-label="Tìm acc">
+      <select class="field" id="sort" style="width:auto;min-width:155px" aria-label="Sắp xếp">
+        <option value="default">Mới cập nhật</option><option value="low">Giá thấp đến cao</option><option value="high">Giá cao đến thấp</option>
+      </select>
+    </div>
+    <div class="grid" id="productGrid"></div>
+  </section>
+</main>
+
+<footer><div class="wrap">© <span id="year"></span> FF NEON SHOP · Website mẫu miễn phí.<br>Free Fire là thương hiệu của chủ sở hữu tương ứng. Website này không phải trang chính thức của Garena.</div></footer>
+
+<dialog id="adminDialog">
+  <div class="modal-head"><h2>⚙ Quản lý danh sách acc</h2><button class="btn" id="closeAdmin" aria-label="Đóng">✕</button></div>
+  <div class="modal-content">
+    <div id="loginBox">
+      <p class="muted">Nhập mã quản lý demo để mở phần thêm/sửa/xóa acc.</p>
+      <label class="form-label" for="adminPassword">Mã quản lý demo</label>
+      <input class="field" id="adminPassword" type="password" placeholder="Mặc định: demo123">
+      <div class="form-actions"><button class="btn btn-primary" id="loginButton">Mở quản lý</button></div>
+      <p class="muted" style="font-size:.82rem">Bảo mật: mã này chỉ để thử giao diện. Vì mã nằm trong mã nguồn công khai, bất kỳ ai cũng có thể xem và vượt qua. Không dùng để bảo vệ shop thật.</p>
+    </div>
+    <div id="adminBox" class="hidden">
+      <div class="notice">Dữ liệu demo được lưu trên trình duyệt hiện tại. Xóa dữ liệu trình duyệt hoặc dùng thiết bị khác có thể làm dữ liệu không còn đồng bộ.</div>
+      <form id="productForm">
+        <input type="hidden" id="productId">
+        <div class="form-grid">
+          <div><label class="form-label" for="productName">Tên acc</label><input class="field" id="productName" maxlength="70" required placeholder="VD: Acc rank cao"></div>
+          <div><label class="form-label" for="productPrice">Giá (VNĐ)</label><input class="field" id="productPrice" type="number" min="0" step="1000" required placeholder="150000"></div>
+          <div><label class="form-label" for="productTag">Nhãn</label><input class="field" id="productTag" maxlength="24" placeholder="VD: Rank cao"></div>
+          <div><label class="form-label" for="productIcon">Biểu tượng</label><select class="field" id="productIcon"><option>🎮</option><option>🔥</option><option>💎</option><option>⚡</option><option>👑</option><option>🚀</option></select></div>
+          <div class="full"><label class="form-label" for="productDesc">Mô tả ngắn (không ghi mật khẩu)</label><textarea class="field" id="productDesc" rows="2" maxlength="180" required placeholder="Mô tả thông tin nổi bật của acc…"></textarea></div>
+        </div>
+        <div class="form-actions"><button class="btn btn-primary" type="submit">Lưu acc</button><button class="btn" type="button" id="resetForm">Làm mới biểu mẫu</button></div>
+      </form>
+      <div class="admin-list" id="adminList"></div>
+      <div class="form-actions"><button class="btn btn-danger" id="resetDemo">Khôi phục acc mẫu</button><button class="btn" id="logoutButton">Đóng phiên quản lý</button></div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  // CẤU HÌNH: thay số điện thoại bên dưới bằng số Zalo của bạn (chỉ chữ số, gồm mã quốc gia nếu cần).
+  const ZALO_PHONE = "SDT_CUA_BAN";
+  const DEMO_ADMIN_CODE = "demo123"; // Không an toàn cho website thật vì mã nguồn phía trình duyệt là công khai.
+  const STORAGE_KEY = "ff-neon-shop-products-v1";
+  const seedProducts = [
+    {id:"demo-1",name:"Acc Demo • Rank cao",price:150000,tag:"ACC DEMO",icon:"🔥",desc:"Tài khoản minh họa để thử giao diện. Thay bằng thông tin mô tả thật của bạn."},
+    {id:"demo-2",name:"Acc Demo • Nhiều vật phẩm",price:250000,tag:"ACC DEMO",icon:"💎",desc:"Mẫu thẻ sản phẩm. Không phải tài khoản thật và không có thông tin đăng nhập."},
+    {id:"demo-3",name:"Acc Demo • Bộ sưu tập",price:99000,tag:"ACC DEMO",icon:"👑",desc:"Bạn có thể sửa tên, giá, nhãn và mô tả trong phần Quản lý."}
+  ];
+  const $ = id => document.getElementById(id);
+  let products = loadProducts();
+  let adminUnlocked = false;
+
+  function loadProducts(){
+    try { const saved = localStorage.getItem(STORAGE_KEY); return saved ? JSON.parse(saved) : [...seedProducts]; }
+    catch { return [...seedProducts]; }
+  }
+  function saveProducts(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(products)); }
+  function escapeHtml(value){ return String(value).replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch])); }
+  function money(value){ return new Intl.NumberFormat("vi-VN",{style:"currency",currency:"VND",maximumFractionDigits:0}).format(value); }
+  function zaloUrl(product){
+    const phone = ZALO_PHONE.replace(/\D/g,"");
+    const message = `Chào shop, mình muốn hỏi ${product.name} - giá ${money(product.price)}.`;
+    // Zalo links to a phone number; the prefilled message may not be supported in every app/browser.
+    return phone ? `https://zalo.me/${phone}` : "https://zalo.me/";
+  }
+  function renderProducts(){
+    const query = $("search").value.trim().toLocaleLowerCase("vi");
+    let list = products.filter(p => `${p.name} ${p.desc} ${p.tag}`.toLocaleLowerCase("vi").includes(query));
+    if($("sort").value==="low") list.sort((a,b)=>a.price-b.price);
+    if($("sort").value==="high") list.sort((a,b)=>b.price-a.price);
+    $("statCount").textContent = products.length;
+    $("productGrid").innerHTML = list.length ? list.map(p => `
+      <article class="card">
+        <div class="card-cover"><span class="tag">${escapeHtml(p.tag || "FREE FIRE")}</span>${escapeHtml(p.icon || "🎮")}</div>
+        <div class="card-body"><h3>${escapeHtml(p.name)}</h3><div class="desc">${escapeHtml(p.desc)}</div>
+          <div class="card-bottom"><span class="price">${money(Number(p.price)||0)}</span>
+          <a class="btn btn-green buy-link" data-id="${escapeHtml(p.id)}" href="${zaloUrl(p)}" target="_blank" rel="noopener">Hỏi mua ↗</a></div>
+        </div>
+      </article>`).join("") : `<div class="empty">Không tìm thấy acc phù hợp.</div>`;
+    document.querySelectorAll(".buy-link").forEach(link => link.addEventListener("click", e => {
+      const p = products.find(item => item.id === link.dataset.id);
+      if(p && ZALO_PHONE === "SDT_CUA_BAN") {
+        e.preventDefault();
+        alert("Bạn cần sửa ZALO_PHONE trong file index.html thành số điện thoại Zalo của shop trước khi dùng nút mua.");
+      }
+    }));
+    $("zaloTop").href = ZALO_PHONE === "SDT_CUA_BAN" ? "https://zalo.me/" : `https://zalo.me/${ZALO_PHONE.replace(/\D/g,"")}`;
+  }
+  function renderAdminList(){
+    $("adminList").innerHTML = products.length ? products.map(p => `
+      <div class="admin-row"><div><b>${escapeHtml(p.name)}</b><small>${money(Number(p.price)||0)} · ${escapeHtml(p.tag||"Không có nhãn")}</small></div>
+      <div class="admin-row-actions"><button class="btn edit-btn" data-id="${escapeHtml(p.id)}">Sửa</button><button class="btn btn-danger delete-btn" data-id="${escapeHtml(p.id)}">Xóa</button></div></div>`).join("") : `<p class="muted">Chưa có acc nào. Hãy thêm acc bằng biểu mẫu phía trên.</p>`;
+    document.querySelectorAll(".edit-btn").forEach(b=>b.addEventListener("click",()=>editProduct(b.dataset.id)));
+    document.querySelectorAll(".delete-btn").forEach(b=>b.addEventListener("click",()=>deleteProduct(b.dataset.id)));
+  }
+  function resetForm(){ $("productForm").reset(); $("productId").value=""; }
+  function editProduct(id){
+    const p = products.find(item=>item.id===id); if(!p) return;
+    $("productId").value=p.id; $("productName").value=p.name; $("productPrice").value=p.price;
+    $("productTag").value=p.tag||""; $("productIcon").value=p.icon||"🎮"; $("productDesc").value=p.desc;
+    $("productName").focus();
+  }
+  function deleteProduct(id){
+    const p=products.find(item=>item.id===id); if(!p || !confirm(`Xóa "${p.name}" khỏi danh sách trên trình duyệt này?`)) return;
+    products=products.filter(item=>item.id!==id); saveProducts(); renderProducts(); renderAdminList();
+  }
+  $("openAdmin").addEventListener("click",()=>{$("adminDialog").showModal();});
+  $("closeAdmin").addEventListener("click",()=>$("adminDialog").close());
+  $("loginButton").addEventListener("click",()=>{
+    if($("adminPassword").value!==DEMO_ADMIN_CODE){alert("Mã quản lý chưa đúng.");return;}
+    adminUnlocked=true; $("loginBox").classList.add("hidden"); $("adminBox").classList.remove("hidden"); renderAdminList();
+  });
+  $("logoutButton").addEventListener("click",()=>{
+    adminUnlocked=false; $("adminBox").classList.add("hidden"); $("loginBox").classList.remove("hidden"); $("adminPassword").value="";
+  });
+  $("productForm").addEventListener("submit",e=>{
+    e.preventDefault();
+    if(!adminUnlocked) return;
+    const id=$("productId").value || (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()));
+    const item={id,name:$("productName").value.trim(),price:Number($("productPrice").value),tag:$("productTag").value.trim()||"FREE FIRE",icon:$("productIcon").value,desc:$("productDesc").value.trim()};
+    if(!item.name || !item.desc || !Number.isFinite(item.price) || item.price<0){alert("Vui lòng kiểm tra tên, mô tả và giá.");return;}
+    const idx=products.findIndex(p=>p.id===id);
+    if(idx>=0) products[idx]=item; else products.unshift(item);
+    saveProducts(); resetForm(); renderProducts(); renderAdminList();
+  });
+  $("resetForm").addEventListener("click",resetForm);
+  $("resetDemo").addEventListener("click",()=>{
+    if(!confirm("Khôi phục 3 acc minh họa? Danh sách hiện tại trên trình duyệt này sẽ bị thay thế.")) return;
+    products=[...seedProducts];saveProducts();resetForm();renderProducts();renderAdminList();
+  });
+  $("search").addEventListener("input",renderProducts);
+  $("sort").addEventListener("change",renderProducts);
+  $("year").textContent=new Date().getFullYear();
+  renderProducts();
+</script>
+</body>
+</html>
