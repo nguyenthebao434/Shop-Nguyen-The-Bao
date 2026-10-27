@@ -20,8 +20,8 @@
 <div id="authModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="authTitle"><div class="modal"><div class="topline"><h2 id="authTitle">Tài khoản</h2><button id="closeAuth" class="secondary">Đóng</button></div><div class="tabs"><button id="tabLogin" class="active">Đăng nhập</button><button id="tabRegister" class="secondary">Đăng ký</button></div><form id="authForm"><div class="field"><label for="authEmail">Email</label><input id="authEmail" type="email" autocomplete="email" required></div><div class="field"><label for="authPassword">Mật khẩu (ít nhất 8 ký tự)</label><input id="authPassword" type="password" minlength="8" autocomplete="current-password" required></div><button id="authSubmit" type="submit">Đăng nhập</button><div id="authMessage" class="status" role="status"></div></form><p class="small">Nếu đăng ký yêu cầu xác minh email, hãy mở email xác minh trước khi đăng nhập.</p></div></div>
 <script type="module">
 import {createClient} from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
-const SUPABASE_URL='PASTE_SUPABASE_PROJECT_URL_HERE';
-const SUPABASE_KEY='PASTE_SUPABASE_PUBLISHABLE_OR_ANON_KEY_HERE';
+const SUPABASE_URL='https://brwnjkhppsuqnolizepd.supabase.co/rest/v1/';
+const SUPABASE_KEY='sb_publishable_SDq2BYeJW8Xy_cBeXCnjbQ_-xyCZHL2';
 const ZALO_URL='https://zalo.me/0356959157';
 const configured=SUPABASE_URL.startsWith('https://')&&!SUPABASE_URL.includes('PASTE_')&&!SUPABASE_KEY.includes('PASTE_');
 const sb=configured?createClient(SUPABASE_URL,SUPABASE_KEY):null;
@@ -48,4 +48,4 @@ $('ordersBtn').addEventListener('click',async()=>{const {data,error}=await sb.fr
 function clearForm(){$('productForm').reset();$('productId').value='';msg($('adminMessage'),'')}
 $('clearForm').addEventListener('click',clearForm);$('logout').addEventListener('click',async()=>{await sb.auth.signOut();await refreshAuth()});
 $('productForm').addEventListener('submit',async e=>{e.preventDefault();if(!isAdmin){msg($('adminMessage'),'Bạn không có quyền quản trị.','error');return}const item={name:$('pName').value.trim(),price:Number($('pPrice').value),level:$('pLevel').value.trim(),image_url:$('pImage').value.trim()||null,description:$('pDescription').value.trim(),status:$('pStatus').value};if(!item.name||!Number.isFinite(item.price)||item.price<0){msg($('adminMessage'),'Kiểm tra tên và giá.','error');return}const id=$('productId').value;const r=id?await sb.from('products').update(item).eq('id',id):await sb.from('products').insert(item);if(r.error){msg($('adminMessage'),r.error.message,'error');return}msg($('adminMessage'),'Đã lưu sản phẩm.','ok');clearForm();await loadProducts();await refreshAuth()});
-$('adminProducts').addEventListener('click',async e=>{const edit=e.target.closest('[data-edit]'),del=e.target.closest('[data-delete]');if(edit){const p=products.find(x=>x.id===edit.dataset.edit);if(!p)return;$('productId').value=p.id;$('pName').value=p.name;$('pPrice').value=p.price;$('pLevel').value=p.level||'';$('pImage').value=p.image_url||'';
+$('adminProducts').addEventListener('click',async e=>{const edit=e.target.closest('[data-edit]'),del=e.target.closest('[data-delete]');if(edit){const p=products.find(x=>x.id===edit.dataset.edit);if(!p)return;$('productId').value=p.id;$('pName').value=p.name;$('pPrice').value=p.price;$('pLevel').value=p.level||'';$('pImage').v
